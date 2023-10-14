@@ -53,8 +53,9 @@ export default {
     }
   },
   methods: {
+  // Méthode pour mettre à jour la liste des produits
     actualiserListeProduits () {
-      // Utilisez votre méthode getAll pour récupérer la liste des produits
+      // En utilise la méthode getAll pour récupérer la liste des produits
       ProductDataService.getAll()
         .then(response => {
           // Mettez à jour la liste des produits avec les données reçues
@@ -64,11 +65,12 @@ export default {
           console.error('Erreur lors de la récupération de la liste des produits :', error)
         })
     },
+    // Méthode pour mettre à jour un produit
     mettreAJourProduit (id, produit) {
       this.produitEnCoursDeModification = { ...produit }
       this.afficherFormulaireMiseAJour = true
     },
-
+    // Méthode pour supprimer un produit
     supprimerProduit (id) {
       ProductDataService.delete(id)
         .then((response) => {
@@ -81,8 +83,6 @@ export default {
           if (index !== -1) {
             this.produits.splice(index, 1)
           }
-
-          // Vous n'avez pas besoin d'appeler actualiserListeProduits ici, car vous avez déjà mis à jour le DOM.
         })
         .catch((error) => {
           console.error('Erreur lors de la suppression du produit sur le serveur :', error)
@@ -91,6 +91,7 @@ export default {
 
   },
   mounted () {
+    // Au chargement de l'application, récupérez la liste des produits
     ProductDataService.getAll()
       .then(response => {
         this.produits = response.data
