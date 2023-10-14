@@ -162,11 +162,13 @@ import ProductDataService from '@/services/ProductDataService'
 
 export default {
   name: 'ProduitsView',
-  props: ['produits', 'actualiserListeProduits', 'supprimerProduit'],
+  props: ['produits', 'supprimerProduit', 'actualiserListeProduits'],
+
   data () {
     return {
       afficherFormulaireAjout: false,
       afficherFormulaireMiseAJour: false,
+      produitsLocaux: [],
       nouveauProduit: {
         nom: '',
         description: '',
@@ -218,9 +220,6 @@ export default {
 
           // Mettere à jour la liste des produits côté client
           await this.actualiserListeProduits()
-
-          // Forcer la mise à jour de l'interface utilisateur
-          this.$forceUpdate()
 
           this.afficherFormulaireAjout = false
           this.nouveauProduit = {
@@ -279,6 +278,7 @@ export default {
     }
 
   }
+
 }
 </script>
 
