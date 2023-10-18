@@ -53,7 +53,7 @@
                 placeholder="Description du produit"
                 v-model="nouveauProduit.description"
               />
-              <span class="error-message" v-if="!nouveauProduit.desc">Ce champ est obligatoire.</span>
+              <span class="error-message" v-if="!nouveauProduit.description">Ce champ est obligatoire.</span>
             </div>
             <div class="mb-3">
                <input
@@ -63,7 +63,7 @@
                 placeholder="Catégorie du produit"
                 v-model="nouveauProduit.categorie"
                />
-               <span class="error-message" v-if="!nouveauProduit.name">Ce champ est obligatoire.</span>
+               <span class="error-message" v-if="!nouveauProduit.categorie">Ce champ est obligatoire.</span>
             </div>
           </div>
           <div class="modal-footer">
